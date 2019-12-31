@@ -1,7 +1,6 @@
 package md5Magic
 
 import (
-	"fmt"
 	"errors"
 )
 

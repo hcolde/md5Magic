@@ -2,7 +2,7 @@
 
 ## How to get
 
-`go get github.com/hcolde/md5Magic`
+`go get -u github.com/hcolde/md5Magic`
 
 ## Demo
 

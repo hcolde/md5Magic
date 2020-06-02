@@ -122,14 +122,26 @@ func Restore(n1 uint64, n2 uint64, args ... string) (s string) {
 		}
 	}
 
+	s2 := ""
 	for n2 > 0 {
-		s = strings.Join([]string{int2Ascii(n2 & 0xf , caps), s}, "")
+		s2 = strings.Join([]string{int2Ascii(n2 & 0xf , caps), s2}, "")
 		n2 = n2 >> 4
 	}
 
+	for len(s2) < 16 {
+		s2 = strings.Join([]string{"0", s2}, "")
+	}
+
+	s1 := ""
 	for n1 > 0 {
-		s = strings.Join([]string{int2Ascii(n1 & 0xf, caps), s}, "")
+		s1 = strings.Join([]string{int2Ascii(n1 & 0xf, caps), s1}, "")
 		n1 = n1 >> 4
 	}
+
+	for len(s1) < 16 {
+		s1 = strings.Join([]string{"0", s1}, "")
+	}
+
+	s = s1 + s2
 	return
 }
